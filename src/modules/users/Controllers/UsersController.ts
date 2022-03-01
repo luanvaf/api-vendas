@@ -9,9 +9,9 @@ export default class UsersController {
   public async index(request: Request, response: Response): Promise<Response> {
     const listUsers = new ListUserService();
 
-    const products = await listUsers.execute();
+    const users = await listUsers.execute();
 
-    return response.json(products);
+    return response.json(users);
   }
 
   public async show(request: Request, response: Response): Promise<Response> {
@@ -19,9 +19,9 @@ export default class UsersController {
 
     const showUser = new ShowUserService();
 
-    const product = await showUser.execute({ id });
+    const user = await showUser.execute({ id });
 
-    return response.json(product);
+    return response.json(user);
   }
 
   public async create(request: Request, response: Response): Promise<Response> {
@@ -29,9 +29,9 @@ export default class UsersController {
 
     const createUser = new CreateUserService();
 
-    const product = await createUser.execute({ name, email, password });
+    const user = await createUser.execute({ name, email, password });
 
-    return response.json(product);
+    return response.json(user);
   }
 
   public async update(request: Request, response: Response): Promise<Response> {
@@ -39,9 +39,9 @@ export default class UsersController {
     const { id } = request.params;
     const updateUser = new UpdateUserService();
 
-    const product = await updateUser.execute({ id, name, email, password });
+    const user = await updateUser.execute({ id, name, email, password });
 
-    return response.json(product);
+    return response.json(user);
   }
 
   public async delete(request: Request, response: Response): Promise<Response> {
